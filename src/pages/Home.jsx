@@ -1,13 +1,67 @@
+import React, { useState } from "react";
+import Card from "../components/Card";
+import PopupModal from "../components/PopupModal";
 
-function Home() {
-  return (
-    <div className="container mt-5">
-      <h2>Welcome to MyBank</h2>
-      <p>Account Number: XXXX-XXXX-1234</p>
-      <p>Balance: ₹45,320.00</p>
-      <p>Account Type: Savings</p>
-    </div>
+import img1 from "../assets/Credit_Debit.svg";
+import img2 from "../assets/FD_RD.svg";
+import img3 from "../assets/Rewards.svg";
+import img4 from "../assets/Goal_planning.svg";
+import img5 from "../assets/Govt_schemes.svg";
+import img6 from "../assets/Settings.svg";
+import img7 from "../assets/Recommendations.svg";
+import img8 from "../assets/Placeholder.svg";
+import img9 from "../assets/Placeholder_2.svg";
+
+const sectionData = {
+  "Section 1": ["Credit Debit", "FD/RD", "Rewards"],
+  "Section 2": ["Goal Planning", "Government schemes", "Placeholder"],
+  "Section 3": ["Recommendation", "Placeholder", "Placeholder"],
+};
+
+const cardImages = [
+  img1, img2, img3,
+  img4, img5, img6,
+  img7, img8, img9
+];
+
+const Home = () => {
+  const [activePopup, setActivePopup] = useState(null);
+
+  // Flatten all items into a single array for the grid
+  const allItems = Object.entries(sectionData).flatMap(([sectionTitle, items]) =>
+    items.map((item) => ({ sectionTitle, item }))
   );
-}
+
+  return (
+    <>
+      <div className="card-grid">
+        {allItems.map(({ item }, idx) => {
+          // Calculate grid column for each card (2, 4, 6)
+          const col = 2 + (idx % 3) * 2;
+          const row = 1 + Math.floor(idx / 3);
+          return (
+            <div
+              className="card-grid-item"
+              key={item + idx}
+              style={{ gridColumn: col, gridRow: row }}
+            >
+              <Card
+                image={cardImages[idx]}
+                title={item}
+                onClick={() => setActivePopup(item)}
+              />
+            </div>
+          );
+        })}
+      </div>
+      {activePopup && (
+        <PopupModal
+          title={activePopup}
+          onClose={() => setActivePopup(null)}
+        />
+      )}
+    </>
+  );
+};
 
 export default Home;
