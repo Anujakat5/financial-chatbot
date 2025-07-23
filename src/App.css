@@ -33,6 +33,11 @@ body {
   padding: 0;
 }
 
+.website-title {
+  margin: 1rem 3rem 0 0;
+  text-align: right;
+}
+
 .navbar-tab-btn,
 .left-sidebar,
 .custom-card {
@@ -88,9 +93,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem; /* Increased font size */
+  font-size: 1.6rem !important;/* Increased font size*/
   color: #1B3C53;     /* Primary text color */
   font-weight: 600;
+}
+
+.label{
+  padding: 0.8rem 0 0 0;
 }
 
 .custom-card:hover {
@@ -115,7 +124,7 @@ body {
   width: 24vw;
   min-width: 240px;
   max-width: 340px;
-  background: #1B3C53 !important; 
+  background: #D2C1B6 !important; 
   color: #F9F3EF !important;
   display: flex;
   flex-direction: column;
@@ -141,10 +150,10 @@ body {
 
 .left-sidebar h6 {
   margin: 1.5rem;
-  font-size: 1.35rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 650;
   text-align: center;
-  color: #F9F3EF !important;
+  color: #1B3C53 !important;
 }
 
 .left-sidebar ul {
@@ -161,10 +170,11 @@ body {
   border: none;
   width: 100%;
   text-align: left;
-  font-size: 1.25rem;
-  color: #F9F3EF;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  /* font-weight: 500 !important; */
+  color: #1B3C53;
+  font-weight: 600;
+  padding: 0.6rem 0.5rem 0.6rem 1.1rem;
   border-radius: 0.75rem;
   transition: color 0.2s;
   cursor: pointer;
@@ -173,9 +183,9 @@ body {
 .sidebar-btn.active,
 .sidebar-btn.active:focus,
 .sidebar-btn.active:active {
-  font-weight: 800 !important; /* Bold */
-  color: #F9F3EF !important;
-  background: none;
+  /* font-weight: 800 !important; */
+  color: #F9F3EF !important; 
+  background: #1B3C53;
 }
 
 .main-content {
@@ -185,15 +195,22 @@ body {
 }
 
 .navbar-custom {
-  margin: 1.3rem; 
-  background: transparent;
+  margin: 0.8rem 0; 
+  /* margin: 0; */
+  background: #1B3C53;
   box-shadow: none;
-  padding: 0.5rem 5rem 0.5rem 0;
+  /* padding: 0.5rem 5rem 0.5rem 0; */
+  padding: 0.5rem 2rem;   
   min-height: 64px;
+  width: 100%;
 }
 
 .navbar-tabs {
   gap: 2rem;
+  justify-content: space-between;  /* or use gap if tabs have fixed widths */
+  align-items: center;
+  width: 100%;
+  padding: 0 3rem; 
 }
 
 .navbar-tab-btn {
@@ -201,8 +218,8 @@ body {
   border: none;
   outline: none;
   font-family: 'Inter', 'Poppins', Arial, sans-serif;
-  font-size: 1.16rem;
-  color: #1B3C53;
+  font-size: 1.5rem;
+  color: #F9F3EF;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 1.5rem;
@@ -212,12 +229,12 @@ body {
 
 .navbar-tab-btn.active {
   font-weight: 800 !important;      /* Bold */
-  color: #1B3C53;        /* Keep primary color */
+  color: #F9F3EF;        /* Keep primary color */
   background: none;      /* No background */
 }
 
 .navbar-tab-btn:hover,
 .navbar-tab-btn:focus {
-  color: #456882;
+  color: #F9F3EF;
   background: none;
 }

@@ -31,7 +31,7 @@ const Card = ({ image, title, onClick }) => (
         marginBottom: "1rem"
       }}
     />
-    <h6 className="mb-0" style={{ marginTop: "auto" }}>{title}</h6>
+    <div className="mb-0 label" style={{ marginTop: "auto"}}>{title}</div>
   </div>
 );
 

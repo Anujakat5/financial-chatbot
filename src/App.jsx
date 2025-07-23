@@ -46,6 +46,13 @@ function App() {
         activeSidebar={activeSidebar}
       />
       <div className="main-content flex-grow-1 d-flex flex-column">
+      {/* Website Title */}
+      <div className="website-title p-3 ps-4">
+        <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53"}}>
+          Financial Chatbot App
+        </h1>
+      </div>
+      {/* <div className="main-content flex-grow-1 d-flex flex-column"> */}
         <Navbar
           onTabClick={(tab) => { setActiveTab(tab); setActiveSidebar(null); }}
           activeTab={activeTab}

@@ -14,7 +14,7 @@ import img9 from "../assets/Placeholder_2.svg";
 
 const sectionData = {
   "Section 1": ["Credit Debit", "FD/RD", "Rewards"],
-  "Section 2": ["Goal Planning", "Government schemes", "Placeholder"],
+  "Section 2": ["Goal Planning", "Government schemes", "Balance Enquiry"],
   "Section 3": ["Recommendation", "Placeholder", "Placeholder"],
 };
 
