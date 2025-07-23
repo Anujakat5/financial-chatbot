@@ -1,16 +1,3 @@
-// import React from "react";
-
-// const Card = ({ image, title, onClick }) => (
-//   <div
-//     className="custom-card shadow-sm p-3 bg-white rounded"
-//     style={{ cursor: "pointer" }}
-//     onClick={onClick}
-//   >
-//     <h6 className="mb-0">{title}</h6>
-//   </div>
-// );
-
-// export default Card;
 import React from "react";
 
 const Card = ({ image, title, onClick }) => (

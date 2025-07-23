@@ -28,7 +28,7 @@ body {
 
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -62,7 +62,8 @@ body {
   display: grid;
   grid-template-columns: 1.8fr 3.5fr 0.4fr 3.5fr 0.4fr 3.5fr 1.8fr;
   grid-template-rows: repeat(3, 1fr);
-  gap: 1.5rem 0; /* vertical gap only, horizontal handled by columns */
+  gap: 1.5rem 0; 
+  /* vertical gap only, horizontal handled by columns */
   width: 100%;
   height: 100%;
   padding: 4rem 0 3rem 0;
@@ -99,7 +100,7 @@ body {
 }
 
 .label{
-  padding: 0.8rem 0 0 0;
+  padding: 0;
 }
 
 .custom-card:hover {
@@ -125,14 +126,20 @@ body {
   min-width: 240px;
   max-width: 340px;
   background: #D2C1B6 !important; 
-  color: #F9F3EF !important;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 0 1.5rem 0 1.5rem; 
   border-radius: 0;
   box-shadow: 0 4px 24px rgba(60,60,100,0.07);
-  height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.left-sidebar-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 
@@ -188,6 +195,22 @@ body {
   background: #1B3C53;
 }
 
+/* Hamburger button styling */
+.sidebar-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1101;
+  background-color: #1B3C53;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .main-content {
   flex: 1;
   display: flex;
@@ -237,4 +260,65 @@ body {
 .navbar-tab-btn:focus {
   color: #F9F3EF;
   background: none;
+}
+
+/* Sidebar for small screens */
+@media screen and (max-width: 768px) {
+
+  .left-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 1100;
+    height: 100vh;
+    width: 80vw; /* or 240px */
+    background: #D2C1B6 !important;
+    overflow-y: auto;
+    /* padding: 1rem 1.5rem; */
+    margin: 0;
+    padding: 0;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-sidebar-inner {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    background-color: inherit; /* Makes vertical layout predictable */
+  }
+
+  .left-sidebar.open {
+    left: 0;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+    z-index: 1000; /* BELOW the sidebar */
+  }
+
+  .sidebar-toggle-btn {
+    display: block;
+  }
+
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
+
+body.sidebar-open {
+  overflow: hidden;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './components/Footer';
 import LeftSidebar from './components/LeftSidebar';
 import Navbar from './components/Navbar';
@@ -7,6 +7,7 @@ import Home from './pages/Home';
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSidebar, setActiveSidebar] = useState(null);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const renderSidebarContent = () => {
     if (!activeSidebar) return null;
@@ -39,12 +40,41 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.classList.add("sidebar-open");
+    } else {
+      document.body.classList.remove("sidebar-open");
+    }
+  }, [isSidebarOpen]);
+
   return (
-    <div className="app-layout d-flex" style={{ minHeight: "100vh" }}>
+    <div className="app-layout d-flex">
+      <>
+      <button
+          className="sidebar-toggle-btn"
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+      >
+          ☰
+      </button>
+
       <LeftSidebar
-        onSidebarClick={(item) => setActiveSidebar(item)}
-        activeSidebar={activeSidebar}
-      />
+          onSidebarClick={(item) => {
+            setActiveSidebar(item);
+            setSidebarOpen(false); // auto-close sidebar after click
+          }}
+          activeSidebar={activeSidebar}
+          isOpen={isSidebarOpen}
+        />
+      </>
+
+      {isSidebarOpen && (
+        <div
+          className="overlay"
+          onClick={() => setSidebarOpen(false)} // click outside to close
+        />
+      )}
+
       <div className="main-content flex-grow-1 d-flex flex-column">
       {/* Website Title */}
       <div className="website-title p-3 ps-4">
@@ -52,7 +82,6 @@ function App() {
           Financial Chatbot App
         </h1>
       </div>
-      {/* <div className="main-content flex-grow-1 d-flex flex-column"> */}
         <Navbar
           onTabClick={(tab) => { setActiveTab(tab); setActiveSidebar(null); }}
           activeTab={activeTab}
