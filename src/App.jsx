@@ -3,19 +3,28 @@ import Footer from './components/Footer';
 import LeftSidebar from './components/LeftSidebar';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import ContactUs from './pages/ContactUs';
+import PersonalDetails from './pages/PersonalDetails';
+import AccountDetails from './pages/AccountDetails';
+import Logout from './pages/Logout';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSidebar, setActiveSidebar] = useState(null);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
+  const sidebarComponentMap = {
+    "Personal details": <PersonalDetails />,
+    "Account details" : <AccountDetails />,
+    // Add new ones here as you create them:
+    // "Account details": <AccountDetails />,
+    // ...
+  };
+
   const renderSidebarContent = () => {
     if (!activeSidebar) return null;
-    return (
-      <div style={{ padding: '2rem' }}>
-        {activeSidebar} Coming Soon...
-      </div>
-    );
+    const component = sidebarComponentMap[activeSidebar];
+    return component || <div style={{ padding: '2rem' }}>{activeSidebar} Coming Soon...</div>;
   };
 
   const renderContent = () => {
@@ -32,9 +41,9 @@ function App() {
       case 'Manage Account':
         return <div style={{ padding: '2rem' }}>Manage Account Coming Soon...</div>;
       case 'Contact Us':
-        return <div style={{ padding: '2rem' }}>Contact Us Coming Soon...</div>;
+        return <ContactUs />;
       case 'Logout':
-        return <div style={{ padding: '2rem' }}>Logout Coming Soon...</div>;
+        return <Logout />;
       default:
         return <Home />;
     }

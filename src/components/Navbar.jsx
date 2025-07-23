@@ -1,25 +1,7 @@
+import { LogOut } from 'lucide-react';
+
 const tabs = ["Home", "Transaction", "Investment", "Credit Score", "Manage Account", "Contact Us", "Logout"];
 
-// const Navbar = ({ onTabClick }) => {
-//   return (
-//     <nav className="navbar bg-light shadow-sm px-4 py-4 d-flex justify-content-between align-items-center">
-//       {/* <button className="btn btn-outline-primary" onClick={() => onTabClick("Home")}>
-//         Dashboard
-//       </button> */}
-//       <div className="ms-auto">
-//         {tabs.map((tab) => (
-//           <button
-//             key={tab}
-//             className="btn btn-link mx-2"
-//             onClick={() => onTabClick(tab)}
-//           >
-//             {tab}
-//           </button>
-//         ))}
-//       </div>
-//     </nav>
-//   );
-// };
 const Navbar = ({ onTabClick, activeTab }) => {
   return (
     <nav className="navbar-custom d-flex align-items-center" style={{ width: "100%" }}>
@@ -30,8 +12,15 @@ const Navbar = ({ onTabClick, activeTab }) => {
             className={`navbar-tab-btn${activeTab === tab ? " active" : ""}`}
             onClick={() => onTabClick(tab)}
             type="button"
+            title={tab === "Logout" ? "Logout" : ""} // Tooltip on hover
           >
-            {tab}
+            {tab === "Logout" ? (
+              <span className="d-flex align-items-center gap-1">
+                <LogOut size={28} /> {/* Icon */}
+              </span>
+            ) : (
+              tab
+            )}
           </button>
         ))}
       </div>
