@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/logo.png";
 
 const sidebarItems = [
   "Account Summary",
@@ -14,7 +13,7 @@ const LeftSidebar = ({ onSidebarClick, activeSidebar, isOpen }) => {
     <div className={`left-sidebar ${isOpen ? 'open' : ''}`}>
       <div className="left-sidebar-inner bg-light p-3 shadow">
         <div className="sidebar-logo-container mb-4" style={{ textAlign: "center" }}>
-          <img src={logo} alt="Logo" style={{ height: "90px", width: "auto" }} />
+          <img src="/logo.png" alt="Logo" style={{ height: "90px", width: "auto" }} />
         </div>
         <h6>Welcome {"<username>"}!</h6>
         <ul className="list-unstyled mt-3">

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/logo.png";
 
 const BalanceEnquiry = ({ goBack }) => {
   const [balanceDetails, setBalanceDetails] = useState(null);
@@ -49,7 +48,7 @@ const BalanceEnquiry = ({ goBack }) => {
       >
         {/* Logo */}
         <img
-          src={logo}
+          src="/logo.png"
           alt="App Logo"
           style={{ width: "90px", marginBottom: "20px" }}
         />
