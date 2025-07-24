@@ -19,24 +19,6 @@ const LoginPage = () => {
       setMessage('Invalid credentials ❌');
     }
 
-    // try {
-    //   const res = await fetch('https://ada78b534173.ngrok-free.app/api/accountdetails/verify/001/123', {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ email, password })
-    //   });
-
-    //   if (res.ok) {
-    //     const data = await res.json();
-    //     setMessage(`Welcome, ${data.username || email}!`);
-    //     navigate('/dashboard');
-    //   } else {
-    //     const err = await res.text();
-    //     setError(err || 'Invalid credentials');
-    //   }
-    // } catch (err) {
-    //   setError('Server error. Please try again later.');
-    // }
   };
 
   return (
