@@ -4,18 +4,18 @@ import PopupModal from "../components/PopupModal";
 
 import img1 from "../assets/Credit_Debit.svg";
 import img2 from "../assets/FD_RD.svg";
-import img3 from "../assets/Rewards.svg";
+import img9 from "../assets/Rewards.svg";
 import img4 from "../assets/Goal_planning.svg";
 import img5 from "../assets/Govt_schemes.svg";
 import img6 from "../assets/Settings.svg";
 import img7 from "../assets/Recommendations.svg";
-import img8 from "../assets/Placeholder.svg";
-import img9 from "../assets/Placeholder_2.svg";
+import img8 from "../assets/Location.svg";
+import img3 from "../assets/Placeholder_2.svg";
 
 const sectionData = {
-  "Section 1": ["Credit Debit", "FD/RD", "Rewards"],
-  "Section 2": ["Goal Planning", "Government schemes", "Balance Enquiry"],
-  "Section 3": ["Recommendation", "Placeholder", "Placeholder"],
+  "Section 1": ["Account Statement", "FD/RD", "Balance Enquiry"],
+  "Section 2": ["Goal Planning", "Government schemes", "Update Details"],
+  "Section 3": ["Recommendations", "Branches Near You", "Rewards"],
 };
 
 const cardImages = [

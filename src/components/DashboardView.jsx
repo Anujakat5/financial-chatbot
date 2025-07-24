@@ -1,20 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
 import Home from '../pages/Home';
+import ContactUs from '../pages/ContactUs';
+import PersonalDetails from '../pages/PersonalDetails';
+import AccountDetails from '../pages/AccountDetails';
+import Logout from '../pages/Logout';
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSidebar, setActiveSidebar] = useState(null);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const sidebarComponentMap = {
+    "Personal details": <PersonalDetails />,
+    "Account details" : <AccountDetails />,
+    // Add new ones here as you create them:
+    // "Account details": <AccountDetails />,
+    // ...
+  };
 
   const renderSidebarContent = () => {
     if (!activeSidebar) return null;
-    return (
-      <div style={{ padding: '2rem' }}>
-        {activeSidebar} Coming Soon...
-      </div>
-    );
+    const component = sidebarComponentMap[activeSidebar];
+    return component || <div style={{ padding: '2rem' }}>{activeSidebar} Coming Soon...</div>;
   };
 
   const renderContent = () => {
@@ -31,20 +41,49 @@ function DashboardView() {
       case 'Manage Account':
         return <div style={{ padding: '2rem' }}>Manage Account Coming Soon...</div>;
       case 'Contact Us':
-        return <div style={{ padding: '2rem' }}>Contact Us Coming Soon...</div>;
+        return <ContactUs />;
       case 'Logout':
-        return <div style={{ padding: '2rem' }}>Logout Coming Soon...</div>;
+        return <Logout />;
       default:
         return <Home />;
     }
   };
 
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.classList.add("sidebar-open");
+    } else {
+      document.body.classList.remove("sidebar-open");
+    }
+  }, [isSidebarOpen]);
+
   return (
-    <div className="app-layout d-flex" style={{ minHeight: "100vh" }}>
+    <div className="app-layout d-flex">
+      <>
+      <button
+          className="sidebar-toggle-btn"
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+      >
+          ☰
+      </button>
+
       <LeftSidebar
-        onSidebarClick={(item) => setActiveSidebar(item)}
-        activeSidebar={activeSidebar}
-      />
+          onSidebarClick={(item) => {
+            setActiveSidebar(item);
+            setSidebarOpen(false); // auto-close sidebar after click
+          }}
+          activeSidebar={activeSidebar}
+          isOpen={isSidebarOpen}
+        />
+      </>
+
+      {isSidebarOpen && (
+        <div
+          className="overlay"
+          onClick={() => setSidebarOpen(false)} // click outside to close
+        />
+      )}
+
       <div className="main-content flex-grow-1 d-flex flex-column">
       {/* Website Title */}
       <div className="website-title p-3 ps-4">
@@ -52,7 +91,6 @@ function DashboardView() {
           Financial Chatbot App
         </h1>
       </div>
-      {/* <div className="main-content flex-grow-1 d-flex flex-column"> */}
         <Navbar
           onTabClick={(tab) => { setActiveTab(tab); setActiveSidebar(null); }}
           activeTab={activeTab}
