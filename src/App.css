@@ -206,7 +206,7 @@ body {
   color: white;
   border: none;
   padding: 0.6rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -251,13 +251,20 @@ body {
   border: none;
   outline: none;
   font-family: 'Inter', 'Poppins', Arial, sans-serif;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   color: #F9F3EF;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 1.5rem;
   transition: color 0.2s;
   cursor: pointer;
+  white-space: nowrap;         /* Prevent line breaks */
+  overflow: hidden;            /* Optional: Hide overflow */
+  text-overflow: ellipsis; 
+}
+
+.navbar-tab-btn {
+  font-size: clamp(1rem, 2vw, 1.5rem);  /* Minimum 1rem, max 1.5rem */
 }
 
 .navbar-tab-btn.active {
@@ -463,4 +470,13 @@ body.sidebar-open {
 .logout-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+.card-sidebar {
+  transition: all 0.2s ease-in-out;
+}
+
+.card-sidebar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }

@@ -4,9 +4,10 @@ import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
 import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs';
-import PersonalDetails from '../pages/PersonalDetails';
-import AccountDetails from '../pages/AccountDetails';
+// import PersonalDetails from '../pages/PersonalDetails';
+// import AccountDetails from '../pages/AccountDetails';
 import Logout from '../pages/Logout';
+import AccountSummary from '../pages/DepositCardGrid'
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
@@ -14,8 +15,9 @@ function DashboardView() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const sidebarComponentMap = {
-    "Personal details": <PersonalDetails />,
-    "Account details" : <AccountDetails />,
+    // "Personal details": <PersonalDetails />,
+    // "Account details" : <AccountDetails />,
+    "Account Summary" : <AccountSummary/>
     // Add new ones here as you create them:
     // "Account details": <AccountDetails />,
     // ...
@@ -88,7 +90,7 @@ function DashboardView() {
       {/* Website Title */}
       <div className="website-title p-3 ps-4">
         <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53"}}>
-          Financial Chatbot App
+           SARTHI
         </h1>
       </div>
         <Navbar

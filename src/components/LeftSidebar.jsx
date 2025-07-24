@@ -2,12 +2,17 @@ import React from "react";
 import logo from "../assets/logo.png";
 
 const sidebarItems = [
-  "Personal details",
-  "Account details",
-  "Planned Goal",
+  "Account Summary",
+  "My Interests",
+  "Nearby Support",
+  "Financial Coach",
+  // "Suggestions",
+  // "Personal details",
+  // "Account details",
+  // "Planned Goal",
   "Card request",
-  "Transaction Limit",
-  "KYC"
+  // "Transaction Limit",
+  // "KYC"
 ];
 
 const LeftSidebar = ({ onSidebarClick, activeSidebar, isOpen }) => {
