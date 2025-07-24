@@ -4,7 +4,7 @@ import FloatingChat from './FloatingChat.jsx';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [customerid, setCustomerid] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -12,7 +12,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (email === 'admin@example.com' && password === 'admin123') {
+    if (customerid === '123456' && password === 'admin123') {
       setMessage('Login successful! ✅');
       navigate('/dashboard');
     } else {
@@ -20,8 +20,8 @@ const LoginPage = () => {
     }
 
     // try {
-    //   const res = await fetch('http://localhost:8080/api/login', {
-    //     method: 'POST',
+    //   const res = await fetch('https://ada78b534173.ngrok-free.app/api/accountdetails/verify/001/123', {
+    //     method: 'GET',
     //     headers: { 'Content-Type': 'application/json' },
     //     body: JSON.stringify({ email, password })
     //   });
@@ -43,9 +43,9 @@ const LoginPage = () => {
     <>
     <div style={styles.page}>
        <div style={styles.logoContainer}>
-        <img src="/mybankLogo.png" alt="Logo" style={styles.logo} />
+        <img src="/logo.png" alt="Logo" style={styles.logo} />
         <div style={styles.textGroup}>
-            <h3 style={styles.bankName}>SecureTrust Bank</h3>
+            <h3 style={styles.bankName}>SAARTHI</h3>
             <p style={styles.slogan}>Your security, our priority</p>
          </div>
        </div>
@@ -57,10 +57,10 @@ const LoginPage = () => {
         {message && <div className="success-msg">{message}</div>}
         <input
           style={styles.input}
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Customer ID"
+          value={customerid}
+          onChange={(e) => setCustomerid(e.target.value)}
         />
         <input
           style={styles.input}
@@ -78,19 +78,19 @@ const LoginPage = () => {
         <div style={styles.altSignIn}>
          <p style={styles.altSignInText}>Sign in with other options</p>
            <div style={styles.altButtons}>
-             <button style={{ ...styles.altButton, ...styles.google }}>
-               <img src="/bio.png" alt="Google" style={styles.icon} /> Biometrics
-             </button>
-             <button style={{ ...styles.altButton, ...styles.microsoft }}>
-              <img src="/facialrecog.png" alt="Microsoft" style={styles.icon} /> Face Recognition
-             </button>
+             <div style={{ ...styles.altButton, ...styles.google }}>
+               <img src="/bio.png" alt="Google" style={styles.icon} /> Fingerprint
+             </div>
+             <div style={{ ...styles.altButton, ...styles.microsoft }}>
+              <img src="/facialrecog.png" alt="Microsoft" style={styles.icon} /> Scan Face
+             </div>
            </div>
         </div>
 
         <div style={styles.ivrCard}>
            <span style={styles.ivrIcon}>📞</span>
            <div>
-              <p style={styles.ivrTitle}>Voice Support (IVR)</p>
+              <p style={styles.ivrTitle}>Login via IVR</p>
               <p style={styles.ivrSub}>Call 1800-123-4567 or tap here to begin</p>
           </div>
         </div>
