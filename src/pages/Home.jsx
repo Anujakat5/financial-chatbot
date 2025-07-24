@@ -36,14 +36,10 @@ const Home = () => {
     <>
       <div className="card-grid">
         {allItems.map(({ item }, idx) => {
-          // Calculate grid column for each card (2, 4, 6)
-          const col = 2 + (idx % 3) * 2;
-          const row = 1 + Math.floor(idx / 3);
           return (
             <div
               className="card-grid-item"
               key={item + idx}
-              style={{ gridColumn: col, gridRow: row }}
             >
               <Card
                 image={cardImages[idx]}
