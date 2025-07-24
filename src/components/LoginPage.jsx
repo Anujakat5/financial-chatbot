@@ -13,7 +13,6 @@ const LoginPage = () => {
     e.preventDefault();
     setError('');
     setMessage('');
-
     try {
       const response = await fetch('http://localhost:8080/api/login', {
         method: 'POST',
