@@ -42,6 +42,14 @@ const LoginPage = () => {
   return (
     <>
     <div style={styles.page}>
+       <div style={styles.logoContainer}>
+        <img src="/mybankLogo.png" alt="Logo" style={styles.logo} />
+        <div style={styles.textGroup}>
+            <h3 style={styles.bankName}>SecureTrust Bank</h3>
+            <p style={styles.slogan}>Your security, our priority</p>
+         </div>
+       </div>
+
       <form style={styles.form} onSubmit={handleLogin}>
         <h2>Login</h2>
 
@@ -63,8 +71,29 @@ const LoginPage = () => {
         />
 
         <button style={styles.button} type="submit">Login</button>
-
         <a style={styles.forgotPass} href="/">Forgot Password?</a>
+        <div style={styles.divider}></div>
+
+
+        <div style={styles.altSignIn}>
+         <p style={styles.altSignInText}>Sign in with other options</p>
+           <div style={styles.altButtons}>
+             <button style={{ ...styles.altButton, ...styles.google }}>
+               <img src="/bio.png" alt="Google" style={styles.icon} /> Biometrics
+             </button>
+             <button style={{ ...styles.altButton, ...styles.microsoft }}>
+              <img src="/facialrecog.png" alt="Microsoft" style={styles.icon} /> Face Recognition
+             </button>
+           </div>
+        </div>
+
+        <div style={styles.ivrCard}>
+           <span style={styles.ivrIcon}>📞</span>
+           <div>
+              <p style={styles.ivrTitle}>Voice Support (IVR)</p>
+              <p style={styles.ivrSub}>Call 1800-123-4567 or tap here to begin</p>
+          </div>
+        </div>
       </form>
 
       <FloatingChat />
@@ -108,7 +137,114 @@ const styles = {
   },
   forgotPass: {
     marginLeft: '-210px'
-  }
+  },
+  
+  logoContainer: {
+  position: 'absolute',
+  top: '20px',
+  left: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
+},
+
+logo: {
+  width: '100px',
+  height: 'auto',
+  marginBottom: '0.5rem'
+},
+
+textGroup: {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.2rem'
+},
+
+bankName: {
+  margin: 0,
+  fontSize: '1rem',
+  fontWeight: 'bold'
+},
+
+slogan: {
+  margin: 0,
+  fontSize: '0.8rem',
+  color: '#333'
+},
+
+divider: {
+  margin: '1.5rem 0 1rem',
+  borderTop: '1px solid #ccc'
+},
+altSignIn: {
+  textAlign: 'center',
+  marginBottom: '1.5rem',
+},
+altSignInText: {
+  fontSize: '0.95rem',
+  marginBottom: '0.5rem',
+  fontWeight: '500',
+},
+altButtons: {
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '0.75rem',
+},
+altButton: {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  padding: '0.5rem 1.25rem',
+  borderRadius: '25px',
+  border: 'none',
+  fontWeight: 'bold',
+  fontSize: '0.9rem',
+  cursor: 'pointer',
+  boxShadow: '0 3px 8px rgba(0,0,0,0.1)',
+  transition: 'transform 0.2s',
+},
+google: {
+  background: '#fff',
+  color: '#444',
+  border: '1px solid #ddd',
+},
+microsoft: {
+  background: '#fff',
+  color: '#222',
+  border: '1px solid #ccc',
+},
+icon: {
+  width: '30px',
+  height: '39px',
+},
+ivrCard: {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+  padding: '1rem',
+  background: '#e7f0ff',
+  borderRadius: '10px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+  marginTop: '1.5rem',
+  textAlign: 'left',
+  cursor: 'pointer',
+  transition: 'background 0.3s',
+},
+ivrIcon: {
+  fontSize: '1.8rem',
+},
+ivrTitle: {
+  fontWeight: '600',
+  fontSize: '1rem',
+  margin: 0,
+},
+ivrSub: {
+  fontSize: '0.85rem',
+  color: '#333',
+  margin: 0,
+}
+
 };
 
 export default LoginPage;
