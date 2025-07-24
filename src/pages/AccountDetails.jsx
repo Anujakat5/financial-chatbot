@@ -3,6 +3,7 @@ import React from "react";
 const AccountDetails = () => {
   const dummyAccount = {
     accountHolder: "Anuja Katruwar",
+    customerId: "CUST987654321", // Added customer ID
     accountNumber: "1234 5678 9012",
     accountType: "Savings",
     branch: "Pune MG Road",
@@ -26,6 +27,7 @@ const AccountDetails = () => {
       <div className="section mb-5">
         <h5 className="mb-3">Account Summary</h5>
         <div className="info-item"><strong>Account Holder:</strong> <span>{dummyAccount.accountHolder}</span></div>
+        <div className="info-item"><strong>Customer ID:</strong> <span>{dummyAccount.customerId}</span></div>
         <div className="info-item"><strong>Account Number:</strong> <span>{dummyAccount.accountNumber}</span></div>
         <div className="info-item"><strong>Account Type:</strong> <span>{dummyAccount.accountType}</span></div>
         <div className="info-item"><strong>Status:</strong> <span>{dummyAccount.status}</span></div>
@@ -40,13 +42,14 @@ const AccountDetails = () => {
         <div className="info-item"><strong>Opening Date:</strong> <span>{dummyAccount.openingDate}</span></div>
       </div>
 
-      {/* Section 3: Balance Info
+      {/* Section 3: Balance Info (Uncomment if needed)
       <div className="section mb-4">
         <h5 className="mb-3">Balance Details</h5>
         <div className="info-item"><strong>Current Balance:</strong> <span>{dummyAccount.balance.currentBalance}</span></div>
         <div className="info-item"><strong>Available Balance:</strong> <span>{dummyAccount.balance.availableBalance}</span></div>
         <div className="info-item"><strong>Last Transaction Date:</strong> <span>{dummyAccount.balance.lastTransactionDate}</span></div>
-      </div> */}
+      </div>
+      */}
     </div>
   );
 };
