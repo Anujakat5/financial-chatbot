@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
+import AlertBar from './AlertBar'; // ✅ Make sure this exists
 import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs';
 // import PersonalDetails from '../pages/PersonalDetails';
 // import AccountDetails from '../pages/AccountDetails';
 import Logout from '../pages/Logout';
-import AccountSummary from '../pages/DepositCardGrid'
+import AccountSummary from '../pages/DepositCardGrid';
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
@@ -16,11 +17,9 @@ function DashboardView() {
 
   const sidebarComponentMap = {
     // "Personal details": <PersonalDetails />,
-    // "Account details" : <AccountDetails />,
-    "Account Summary" : <AccountSummary/>
-    // Add new ones here as you create them:
     // "Account details": <AccountDetails />,
-    // ...
+    "Account Summary": <AccountSummary />
+    // Add more side items here as needed
   };
 
   const renderSidebarContent = () => {
@@ -31,6 +30,7 @@ function DashboardView() {
 
   const renderContent = () => {
     if (activeSidebar) return renderSidebarContent();
+
     switch (activeTab) {
       case 'home':
         return <Home />;
@@ -62,14 +62,14 @@ function DashboardView() {
   return (
     <div className="app-layout d-flex">
       <>
-      <button
+        <button
           className="sidebar-toggle-btn"
           onClick={() => setSidebarOpen(!isSidebarOpen)}
-      >
+        >
           ☰
-      </button>
+        </button>
 
-      <LeftSidebar
+        <LeftSidebar
           onSidebarClick={(item) => {
             setActiveSidebar(item);
             setSidebarOpen(false); // auto-close sidebar after click
@@ -87,20 +87,32 @@ function DashboardView() {
       )}
 
       <div className="main-content flex-grow-1 d-flex flex-column">
-      {/* Website Title */}
-      <div className="website-title p-3 ps-4">
-        <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53"}}>
-           SARTHI
-        </h1>
-      </div>
+        {/* Website Title */}
+        <div className="website-title p-3 ps-4">
+          <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53" }}>
+            SARTHI
+          </h1>
+        </div>
+
+        {/* ✅ Alert Bar */}
+        <AlertBar />
+
+        {/* ✅ Navbar */}
         <Navbar
-          onTabClick={(tab) => { setActiveTab(tab); setActiveSidebar(null); }}
+          onTabClick={(tab) => {
+            setActiveTab(tab);
+            setActiveSidebar(null);
+          }}
           activeTab={activeTab}
         />
+
+        {/* Main Content Area */}
         <main className="flex-grow-1 p-4">
           {renderContent()}
         </main>
-        <Footer/>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </div>
   );
