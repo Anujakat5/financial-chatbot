@@ -228,12 +228,22 @@ body {
   width: 100%;
 }
 
+/* .navbar-tabs {
+  gap: 2rem;
+  justify-content: space-between;  /* or use gap if tabs have fixed widths
+  align-items: center;
+  width: 100%;
+  padding: 0 3rem; 
+} */
+ /* Find your .navbar-tabs rule and add position: relative; */
+
 .navbar-tabs {
   gap: 2rem;
   justify-content: space-between;  /* or use gap if tabs have fixed widths */
   align-items: center;
   width: 100%;
   padding: 0 3rem; 
+  position: relative; /* <-- Add this line */
 }
 
 .navbar-tab-btn {
@@ -260,6 +270,52 @@ body {
 .navbar-tab-btn:focus {
   color: #F9F3EF;
   background: none;
+}
+
+/* --- Navbar Dropdown Styles --- */
+.navbar-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(60,60,100,0.12);
+  z-index: 2000;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  animation: navbarDropFadeIn 0.18s cubic-bezier(.4,1.4,.6,1) both;
+}
+
+@keyframes navbarDropFadeIn {
+  from { opacity: 0; transform: translateY(-16px) scaleY(0.95);}
+  to { opacity: 1; transform: translateY(0) scaleY(1);}
+}
+
+.navbar-dropdown-btn {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #1B3C53;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.navbar-dropdown-btn:hover,
+.navbar-dropdown-btn:focus {
+  background: #F9F3EF;
+  color: #1B3C53;
+}
+
+/* Optional: visually indicate dropdown tab on hover/focus */
+.navbar-tab-btn.has-dropdown:after {
+  content: "";
+  display: none;
 }
 
 /* Sidebar for small screens */
