@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../components/Card";
 import PopupModal from "../components/PopupModal";
+import BalanceEnquiry from "./BalanceEnquiry"; // Import the balance enquiry component
 
 import img1 from "../assets/Credit_Debit.svg";
 import img2 from "../assets/FD_RD.svg";
@@ -26,17 +27,21 @@ const cardImages = [
 
 const Home = () => {
   const [activePopup, setActivePopup] = useState(null);
+  const [activePage, setActivePage] = useState("home"); // 👈 Track which view to render
 
-  // Flatten all items into a single array for the grid
+  // Flatten all items for rendering
   const allItems = Object.entries(sectionData).flatMap(([sectionTitle, items]) =>
     items.map((item) => ({ sectionTitle, item }))
   );
+
+  if (activePage === "balance-enquiry") {
+    return <BalanceEnquiry goBack={() => setActivePage("home")} />; // 👈 Show BalanceEnquiry component
+  }
 
   return (
     <>
       <div className="card-grid">
         {allItems.map(({ item }, idx) => {
-          // Calculate grid column for each card (2, 4, 6)
           const col = 2 + (idx % 3) * 2;
           const row = 1 + Math.floor(idx / 3);
           return (
@@ -48,12 +53,17 @@ const Home = () => {
               <Card
                 image={cardImages[idx]}
                 title={item}
-                onClick={() => setActivePopup(item)}
+                onClick={() =>
+                  item === "Balance Enquiry"
+                    ? setActivePage("balance-enquiry") // 👈 Switch view instead of navigating
+                    : setActivePopup(item)
+                }
               />
             </div>
           );
         })}
       </div>
+
       {activePopup && (
         <PopupModal
           title={activePopup}
