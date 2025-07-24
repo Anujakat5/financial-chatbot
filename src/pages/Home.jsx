@@ -42,13 +42,13 @@ const Home = () => {
     <>
       <div className="card-grid">
         {allItems.map(({ item }, idx) => {
-          const col = 2 + (idx % 3) * 2;
-          const row = 1 + Math.floor(idx / 3);
+          // const col = 2 + (idx % 3) * 2;
+          // const row = 1 + Math.floor(idx / 3);
           return (
             <div
               className="card-grid-item"
               key={item + idx}
-              style={{ gridColumn: col, gridRow: row }}
+              // style={{ gridColumn: col, gridRow: row }}
             >
               <Card
                 image={cardImages[idx]}

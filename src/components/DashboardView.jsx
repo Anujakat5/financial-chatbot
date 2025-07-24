@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
-import AlertBar from './AlertBar'; // ✅ Make sure this exists
+import AlertBar from './AlertBar'; 
 import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs';
 // import PersonalDetails from '../pages/PersonalDetails';
 // import AccountDetails from '../pages/AccountDetails';
 import Logout from '../pages/Logout';
-import AccountSummary from '../pages/DepositCardGrid';
+import AccountSummary from '../pages/DepositCardGrid'
+import MyInterests from '../pages/MyInterests'
+import NearbySupport from '../pages/NearbySupport'
+import FinancialCoach from '../pages/FinancialCoach'
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
@@ -17,8 +20,13 @@ function DashboardView() {
 
   const sidebarComponentMap = {
     // "Personal details": <PersonalDetails />,
+    // "Account details" : <AccountDetails />,
+    "Account Summary" : <AccountSummary/>,
+    "My Interests" : <MyInterests/>,
+    "Nearby Support": <NearbySupport/>,
+    "Financial Coach": <FinancialCoach/>
+    // Add new ones here as you create them:
     // "Account details": <AccountDetails />,
-    "Account Summary": <AccountSummary />
     // Add more side items here as needed
   };
 
@@ -90,7 +98,7 @@ function DashboardView() {
         {/* Website Title */}
         <div className="website-title p-3 ps-4">
           <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53" }}>
-            SARTHI
+            SAARTHI
           </h1>
         </div>
 
