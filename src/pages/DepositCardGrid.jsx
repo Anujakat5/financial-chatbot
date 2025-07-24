@@ -455,9 +455,19 @@ const DepositCard = ({ account, balance, data }) => {
         Deposit
       </div>
 
-      <div className="account-info">
+      {/* <div className="account-info">
         <div>{account}</div>
         <div>₹{balance.toLocaleString()}</div>
+      </div> */}
+      <div className="account-info">
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <span style={{ fontSize: '14px', color: '#ccc' }}>Account</span>
+          <span>{account}</span>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'right' }}>
+          <span style={{ fontSize: '14px', color: '#ccc' }}>Balance</span>
+          <span>₹{balance.toLocaleString()}</span>
+        </div>
       </div>
 
       <div className="chart-label">Last 6 months</div>
