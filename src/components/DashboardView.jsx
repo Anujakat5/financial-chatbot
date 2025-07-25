@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ContactUs from '../pages/ContactUs';
+import AccountSummary from '../pages/DepositCardGrid';
+import FinancialCoach from '../pages/FinancialCoach';
+import Home from '../pages/Home';
+import MyInterests from '../pages/MyInterests';
+import NearbySupport from '../pages/NearbySupport';
+import AlertBar from './AlertBar';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
-import AlertBar from './AlertBar'; 
-import Home from '../pages/Home';
-import ContactUs from '../pages/ContactUs';
-import Logout from '../pages/Logout';
-import AccountSummary from '../pages/DepositCardGrid'
-import MyInterests from '../pages/MyInterests'
-import NearbySupport from '../pages/NearbySupport'
-import FinancialCoach from '../pages/FinancialCoach'
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSidebar, setActiveSidebar] = useState(null);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const sidebarComponentMap = {
     "Account Summary" : <AccountSummary/>,
@@ -48,7 +50,8 @@ function DashboardView() {
       case 'Contact Us':
         return <ContactUs />;
       case 'Logout':
-        return <Logout />;
+        navigate('/');
+        return null;
       default:
         return <Home />;
     }
@@ -61,6 +64,15 @@ function DashboardView() {
       document.body.classList.remove("sidebar-open");
     }
   }, [isSidebarOpen]);
+
+  const [timestamp, setTimestamp] = useState('');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('loginTimestamp');
+    if (stored) {
+      setTimestamp(stored);
+    }
+  }, []);
 
   return (
     <div className="app-layout d-flex">
@@ -100,15 +112,15 @@ function DashboardView() {
           <div className="user-info-block">
             <div className="info-row-name">
               <span className="label">Customer Name:</span>
-              <span className="value black">John Doe</span>
+              <span className="value black">Aarav Mehta</span>
             </div>
             <div className="info-row-id">
               <span className="label">Customer ID:</span>
-              <span className="value black">123456</span>
+              <span className="value black">001</span>
             </div>
             <div className="info-row-login-info">
               <span className="label red">Last Login Date & Time:</span>
-              <span className="value grey">25-Jul-2025 [12:17 PM IST]</span>
+              <span className="value grey">{timestamp}</span>
             </div>
           </div>
 

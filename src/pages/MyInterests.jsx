@@ -29,19 +29,22 @@ Start date: 23 July 2025, End date: 31 Aug 2025.`,
 
   return (
     <div className="table-wrapper">
-      <div className="interests-table">
-        {/* Row 1 - Titles */}
-        {cards.map((card, index) => (
-          <div className="cell-title" key={`title-${index}`}>
-            {card.title}
+      <div className="table-content">
+        <div className="interests-table">
+          {cards.map((card, index) => (
+          <div className="cell" key={index}>
+            <div className="cell-title">{card.title}</div>
+            <div className="cell-info">{card.info}</div>
           </div>
         ))}
-        {/* Row 2 - Info */}
-        {cards.map((card, index) => (
-          <div className="cell-info" key={`info-${index}`}>
-            {card.info}
-          </div>
-        ))}
+        </div>
+
+        {/* Buttons below table */}
+        <div className="button-container">
+          <button className="btn">New</button>
+          <button className="btn">Add</button>
+          <button className="btn btn-delete">Delete</button>
+        </div>
       </div>
     </div>
   );
