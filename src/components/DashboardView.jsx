@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ContactUs from '../pages/ContactUs';
+import AccountSummary from '../pages/DepositCardGrid';
+import FinancialCoach from '../pages/FinancialCoach';
+import Home from '../pages/Home';
+import MyInterests from '../pages/MyInterests';
+import NearbySupport from '../pages/NearbySupport';
+import AlertBar from './AlertBar';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
-import AlertBar from './AlertBar'; 
-import Home from '../pages/Home';
-import ContactUs from '../pages/ContactUs';
-import Logout from '../pages/Logout';
-import AccountSummary from '../pages/DepositCardGrid'
-import MyInterests from '../pages/MyInterests'
-import NearbySupport from '../pages/NearbySupport'
-import FinancialCoach from '../pages/FinancialCoach'
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSidebar, setActiveSidebar] = useState(null);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const sidebarComponentMap = {
     "Account Summary" : <AccountSummary/>,
@@ -48,7 +50,8 @@ function DashboardView() {
       case 'Contact Us':
         return <ContactUs />;
       case 'Logout':
-        return <Logout />;
+        navigate('/');
+        return null;
       default:
         return <Home />;
     }
