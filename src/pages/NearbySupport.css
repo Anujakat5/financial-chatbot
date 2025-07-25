@@ -1,0 +1,67 @@
+.table-wrapper {
+  background-color: #F9F3EF;
+  display: flex;
+  justify-content: center;
+  /* margin-left: 0rem; */
+}
+
+.interests-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Row 1 - Titles */
+.cell-title {
+  background-color: #1f3e70;
+  color: white;
+  font-weight: bold;
+  font-size: 1.35rem;
+  padding: 1rem;
+  text-align: center;
+  /* border-radius: 8px; */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+}
+
+/* Row 2 - Info */
+.cell-info {
+  background-color: #afdcec;/*overrides all*/
+  color: #333;
+  padding: 1.8rem;
+  height: 450px;
+  /* border-radius: 8px; */
+  overflow-y: auto;
+  white-space: pre-wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  font-size: 1.3rem;
+  font-weight: 530;
+}
+
+/* Scrollbar styling */
+.cell-info::-webkit-scrollbar {
+  width: 6px;
+}
+.cell-info::-webkit-scrollbar-thumb {
+  background-color: #0d3b66;
+  border-radius: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .interests-table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .interests-table {
+    grid-template-columns: 1fr;
+  }
+}
