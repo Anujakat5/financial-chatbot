@@ -65,6 +65,15 @@ function DashboardView() {
     }
   }, [isSidebarOpen]);
 
+  const [timestamp, setTimestamp] = useState('');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('loginTimestamp');
+    if (stored) {
+      setTimestamp(stored);
+    }
+  }, []);
+
   return (
     <div className="app-layout d-flex">
       <>
@@ -111,7 +120,7 @@ function DashboardView() {
             </div>
             <div className="info-row-login-info">
               <span className="label red">Last Login Date & Time:</span>
-              <span className="value grey">25-Jul-2025 [12:17 PM IST]</span>
+              <span className="value grey">{timestamp}</span>
             </div>
           </div>
 
