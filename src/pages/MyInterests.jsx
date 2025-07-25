@@ -16,14 +16,14 @@ Start date: 23 July 2025, End date: 31 Aug 2025.`,
     },
     {
       title: "Alerts/Improvements",
-      info: `- Add tags for improving nearby suggestions`,
+      info: `• Add tags for improving nearby suggestions`,
     },
     {
       title: "Suggestions",
-      info: `- Offer rewards for big purchases
-- Focus more on best selling products
-- Start happy hour discount for off-sale period
-- New demand items`,
+      info: `• Offer rewards for big purchases
+• Focus more on best selling products
+• Start happy hour discount for off-sale period
+• New demand items`,
     },
   ];
 

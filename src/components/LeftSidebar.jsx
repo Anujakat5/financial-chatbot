@@ -4,18 +4,17 @@ const sidebarItems = [
   "Account Summary",
   "My Interests",
   "Nearby Support",
-  "Financial Coach",
-  "Card request",
+  "Financial Coach"
 ];
 
 const LeftSidebar = ({ onSidebarClick, activeSidebar, isOpen }) => {
   return (
     <div className={`left-sidebar ${isOpen ? 'open' : ''}`}>
-      <div className="left-sidebar-inner bg-light p-3 shadow">
+      <div className="left-sidebar-inner p-3 shadow">
         <div className="sidebar-logo-container mb-4" style={{ textAlign: "center" }}>
           <img src="/logo.png" alt="Logo" style={{ height: "90px", width: "auto" }} />
         </div>
-        <h6>Welcome {"<username>"}!</h6>
+        <h6>Welcome John Doe!</h6>
         <ul className="list-unstyled mt-3">
           {sidebarItems.map((item) => (
             <li

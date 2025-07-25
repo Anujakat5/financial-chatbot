@@ -3,7 +3,7 @@ import React from "react";
 
 const AlertBar = () => {
   return (
-    <div
+    <div className="screen-alert"
       style={{
         backgroundColor: "#fff",
         color: "red",
