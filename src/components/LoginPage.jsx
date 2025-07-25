@@ -13,9 +13,9 @@ const LoginPage = () => {
     e.preventDefault();
     setError('');
     setMessage('');
-    
+
     try {
-      const response = await fetch('https://financial-banking-878612543973.europe-west1.run.app/api/login', {
+      const response = await fetch('http://localhost:8080/api/login', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -92,10 +92,10 @@ const LoginPage = () => {
           </div>
 
           <div style={styles.ivrCard}>
-            <span style={styles.ivrIcon}><img src="/mobile.png" alt="mobileIcon" style={styles.mobileIcon} /></span>
-            <div style={styles.ivrText}>
+            <span style={styles.ivrIcon}>📞</span>
+            <div>
               <p style={styles.ivrTitle}>Login via IVR</p>
-              <p style={styles.ivrSub}>Call 1800-123-4567 </p>
+              <p style={styles.ivrSub}>Call 1800-123-4567 or tap here to begin</p>
             </div>
           </div>
         </form>
@@ -107,10 +107,6 @@ const LoginPage = () => {
 };
 
 const styles = {
-  mobileIcon: {
-    width: '40px',
-    height: '50px',
-  },
   page: {
     height: '100vh',
     display: 'flex',
@@ -209,13 +205,11 @@ const styles = {
     background: '#fff',
     color: '#444',
     border: '1px solid #ddd',
-    backgroundColor: 'rgb(231, 240, 255)',
   },
   microsoft: {
     background: '#fff',
     color: '#222',
     border: '1px solid #ccc',
-    backgroundColor: 'rgb(231, 240, 255)',
   },
   icon: {
     width: '30px',
@@ -229,14 +223,13 @@ const styles = {
     background: '#e7f0ff',
     borderRadius: '10px',
     boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-    marginTop: '-15px',
+    marginTop: '1.5rem',
     textAlign: 'left',
     cursor: 'pointer',
     transition: 'background 0.3s',
   },
   ivrIcon: {
     fontSize: '1.8rem',
-    paddingLeft: '62px'
   },
   ivrTitle: {
     fontWeight: '600',
@@ -247,13 +240,7 @@ const styles = {
     fontSize: '0.85rem',
     color: '#333',
     margin: 0,
-  },
-  ivrText: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
   }
-  
 };
 
 export default LoginPage;

@@ -5,25 +5,25 @@ const FinancialGoalsPage = () => {
   const cards = [
     {
       title: "Suggestion for interest",
-      info: ` - Top seasonal items for improved sale\n
-- Best selling product list\n
-- Training for how small rewards or gifts help attract sale`,
+      info: `• Top seasonal items for improved sale\n
+• Best selling product list\n
+• Training for how small rewards or gifts help attract sale`,
     },
     {
       title: "Suggestions for recent activities",
-      info: `- Focus more on best selling products\n
-- Move balance from saving account to linked deposit account`,
+      info: `• Focus more on best selling products\n
+• Move balance from saving account to linked deposit account`,
     },
     {
       title: "Subscription / surveys",
-      info: `- Ask for surveys to improve community support\n
-- Community alert for monthly membership fee due soon
+      info: `• Ask for surveys to improve community support\n
+• Community alert for monthly membership fee due soon
 `,
     },
     {
       title: "General financial suggestions",
-      info: `- Links for latest government rule for tax\n
-- create a budget limit and tags to track
+      info: `• Links for latest government rule for tax\n
+• create a budget limit and tags to track
 `,
     },
   ];
