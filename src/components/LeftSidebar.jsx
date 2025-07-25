@@ -31,7 +31,7 @@ const LeftSidebar = ({ onSidebarClick, activeSidebar, isOpen, sinNumber }) => {
         <div className="sidebar-logo-container mb-4" style={{ textAlign: "center" }}>
           <img src="/mybankLogo.png" alt="Logo" style={{ height: "90px", width: "auto" }} />
         </div>
-        <h6>Welcome</h6>
+        <h6>Welcome Aarav !</h6>
         <ul className="list-unstyled mt-3">
           {sidebarItems.map((item) => (
             <li
