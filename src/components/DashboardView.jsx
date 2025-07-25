@@ -112,11 +112,11 @@ function DashboardView() {
           <div className="user-info-block">
             <div className="info-row-name">
               <span className="label">Customer Name:</span>
-              <span className="value black">John Doe</span>
+              <span className="value black">Aarav Mehta</span>
             </div>
             <div className="info-row-id">
               <span className="label">Customer ID:</span>
-              <span className="value black">123456</span>
+              <span className="value black">001</span>
             </div>
             <div className="info-row-login-info">
               <span className="label red">Last Login Date & Time:</span>
