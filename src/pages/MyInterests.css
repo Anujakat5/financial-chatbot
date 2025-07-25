@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 
 .interests-table {
@@ -17,6 +17,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
   width: 100%;
+  /* max-width: 1200px; */
 }
 
 /* ... existing cell-title, cell-info styles stay unchanged ... */
