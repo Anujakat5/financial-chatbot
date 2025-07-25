@@ -30,16 +30,10 @@ Start date: 23 July 2025, End date: 31 Aug 2025.`,
   return (
     <div className="table-wrapper">
       <div className="interests-table">
-        {/* Row 1 - Titles */}
         {cards.map((card, index) => (
-          <div className="cell-title" key={`title-${index}`}>
-            {card.title}
-          </div>
-        ))}
-        {/* Row 2 - Info */}
-        {cards.map((card, index) => (
-          <div className="cell-info" key={`info-${index}`}>
-            {card.info}
+          <div className="cell" key={index}>
+            <div className="cell-title">{card.title}</div>
+            <div className="cell-info">{card.info}</div>
           </div>
         ))}
       </div>
