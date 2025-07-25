@@ -5,18 +5,36 @@
   justify-content: center;
 }
 
+.table-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+}
+
 .interests-table {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
   width: 100%;
-  max-width: 1200px;
 }
 
-/* Row 1 - Titles */
-.cell-title {
+/* ... existing cell-title, cell-info styles stay unchanged ... */
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.4rem 1rem;
   background-color: #0d3b66;
   color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   font-weight: bold;
   font-size: 1.1rem;
   padding: 1rem;
@@ -28,39 +46,19 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
 }
 
-/* Row 2 - Info */
-.cell-info {
-  background-color: #F9F3EF;
-  color: #333;
-  padding: 1rem;
-  height: 450px;
-  /* border-radius: 8px; */
-  overflow-y: auto;
-  white-space: pre-wrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: justify;
+.btn:hover {
+  background-color: #092a4e;
+  color: white;
 }
 
-/* Scrollbar styling */
-.cell-info::-webkit-scrollbar {
-  width: 6px;
-}
-.cell-info::-webkit-scrollbar-thumb {
-  background-color: #0d3b66;
-  border-radius: 10px;
+.btn-delete {
+  background-color: #e63946;
 }
 
-/* Responsive layout */
-@media (max-width: 1024px) {
-  .interests-table {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .interests-table {
-    grid-template-columns: 1fr;
-  }
+.btn-delete:hover {
+  background-color: #c82333;
 }

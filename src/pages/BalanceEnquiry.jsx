@@ -18,7 +18,9 @@ const BalanceEnquiry = ({ goBack }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/api/accountdetails/${customerid}`);
+      const response = await fetch(`https://financial-banking-878612543973.europe-west1.run.app/api/accountdetails/${customerid}`, {
+        method: 'GET'
+        });
 
       if (!response.ok) {
         throw new Error("Failed to fetch balance.");

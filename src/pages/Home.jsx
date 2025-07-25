@@ -15,7 +15,7 @@ import img3 from "../assets/Placeholder_2.svg";
 
 const sectionData = {
   "Section 1": ["Account Statement", "FD/RD", "Balance Enquiry"],
-  "Section 2": ["Goal Planning", "Government schemes", "Update Details"],
+  "Section 2": ["Goal Planning", "Government Schemes", "Update Details"],
   "Section 3": ["Recommendations", "Branches Near You", "Rewards"],
 };
 
