@@ -13,7 +13,17 @@ const LoginPage = () => {
     e.preventDefault();
     setError('');
     setMessage('');
-    
+    const now = new Date();
+    const formattedTime = now.toLocaleString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+      timeZoneName: 'short'
+    });
+    localStorage.setItem("loginTimestamp", formattedTime);
     try {
       const response = await fetch('https://financial-banking-878612543973.europe-west1.run.app/api/login', {
         method: 'POST',
