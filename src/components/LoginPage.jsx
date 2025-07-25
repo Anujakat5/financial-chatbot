@@ -60,8 +60,8 @@ const LoginPage = () => {
         <div style={styles.logoContainer}>
           <img src="/mybankLogo.png" alt="Logo" style={styles.logo} />
           <div style={styles.textGroup}>
-            <h3 style={styles.bankName}>SAARTHI</h3>
-            <p style={styles.slogan}>Your security, our priority</p>
+            <h3 style={styles.bankName}>$AA₹THI</h3>
+            <p style={styles.slogan}>Empowering Your Growth Path</p>
           </div>
         </div>
 

@@ -105,7 +105,7 @@ function DashboardView() {
         {/* Website Title */}
         {/* <div className="website-title p-3 ps-4">
           <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53" }}>
-            SAARTHI
+            $AA₹THI
           </h1>
         </div> */}
         <div className="website-header d-flex justify-content-between align-items-center px-4 py-3">
@@ -124,7 +124,7 @@ function DashboardView() {
             </div>
           </div>
 
-          <h1 className="website-title-text">SAARTHI</h1>
+          <h1 className="website-title-text">$AA₹THI</h1>
         </div>
 
         {/* ✅ Alert Bar */}
