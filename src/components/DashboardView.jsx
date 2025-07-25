@@ -128,7 +128,7 @@ function DashboardView() {
         />
 
         {/* Main Content Area */}
-        <main className="flex-grow-1 p-4">
+        <main className="main-area-bg flex-grow-1 p-4">
           {renderContent()}
         </main>
 
