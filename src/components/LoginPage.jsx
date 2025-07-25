@@ -32,6 +32,7 @@ const LoginPage = () => {
           setError("❌ Invalid customer ID or password");
         } else {
           setMessage("✅ Login successful!");
+          localStorage.setItem("customerid", customerid);
           navigate('/dashboard');
         }
       } else {

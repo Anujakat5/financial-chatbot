@@ -1,27 +1,46 @@
 import React, { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
+import axios from "axios";
+
 
 const BalanceEnquiry = ({ goBack }) => {
   const [balanceDetails, setBalanceDetails] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const accountNo = "1234567890";
-
   const fetchBalance = async () => {
-    setLoading(true);
-    setError("");
+    const customerid = localStorage.getItem("customerid"); // or whatever key you're using
+
+    if (!customerid) {
+      setError("Customer ID not found. Please log in again.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      await new Promise((res) => setTimeout(res, 1000));
+      const response = await fetch(`http://localhost:8080/api/accountdetails/${customerid}`);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch balance.");
+      }
+
+      const data = await response.json();
+
+      const cleanBalance = parseFloat(data.balance.replace(/[^\d.-]/g, '')).toFixed(2);
+
       setBalanceDetails({
-        accountNo,
-        balance: "₹12,345.67",
+        accountNo: data.accountNumber,
+        balance: `₹${cleanBalance}`,
       });
-    } catch (err) {
-      setError("Failed to fetch balance.");
+    } catch (error) {
+      console.error("Error fetching balance:", error);
+      setError("Failed to fetch balance. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+
 
   useEffect(() => {
     fetchBalance();
@@ -46,19 +65,16 @@ const BalanceEnquiry = ({ goBack }) => {
           border: "2px solid #D2C1B6",
         }}
       >
-        {/* Logo */}
         <img
           src="/logo.png"
           alt="App Logo"
           style={{ width: "90px", marginBottom: "20px" }}
         />
 
-        {/* Title */}
         <h1 className="mb-4" style={{ fontWeight: "600", color: "#1B3C53" }}>
           Balance Enquiry
         </h1>
 
-        {/* Loading */}
         {loading && (
           <div>
             <div className="spinner-border text-secondary mb-3" role="status" />
@@ -68,14 +84,12 @@ const BalanceEnquiry = ({ goBack }) => {
           </div>
         )}
 
-        {/* Error */}
         {error && (
           <div className="alert alert-danger" style={{ fontSize: "1.1rem" }}>
             {error}
           </div>
         )}
 
-        {/* Balance Details */}
         {balanceDetails && !loading && (
           <div
             className="p-4 my-4"
@@ -98,7 +112,6 @@ const BalanceEnquiry = ({ goBack }) => {
           </div>
         )}
 
-        {/* Back Button */}
         <button
           onClick={goBack}
           className="btn"

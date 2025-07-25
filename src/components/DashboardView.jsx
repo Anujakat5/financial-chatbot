@@ -5,8 +5,6 @@ import Navbar from './Navbar';
 import AlertBar from './AlertBar'; 
 import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs';
-// import PersonalDetails from '../pages/PersonalDetails';
-// import AccountDetails from '../pages/AccountDetails';
 import Logout from '../pages/Logout';
 import AccountSummary from '../pages/DepositCardGrid'
 import MyInterests from '../pages/MyInterests'
@@ -19,14 +17,11 @@ function DashboardView() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const sidebarComponentMap = {
-    // "Personal details": <PersonalDetails />,
-    // "Account details" : <AccountDetails />,
     "Account Summary" : <AccountSummary/>,
     "My Interests" : <MyInterests/>,
     "Nearby Support": <NearbySupport/>,
     "Financial Coach": <FinancialCoach/>
     // Add new ones here as you create them:
-    // "Account details": <AccountDetails />,
     // Add more side items here as needed
   };
 
@@ -96,10 +91,28 @@ function DashboardView() {
 
       <div className="main-content flex-grow-1 d-flex flex-column">
         {/* Website Title */}
-        <div className="website-title p-3 ps-4">
+        {/* <div className="website-title p-3 ps-4">
           <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", color: "#1B3C53" }}>
             SAARTHI
           </h1>
+        </div> */}
+        <div className="website-header d-flex justify-content-between align-items-center px-4 py-3">
+          <div className="user-info-block">
+            <div className="info-row-name">
+              <span className="label">Customer Name:</span>
+              <span className="value black">John Doe</span>
+            </div>
+            <div className="info-row-id">
+              <span className="label">Customer ID:</span>
+              <span className="value black">123456</span>
+            </div>
+            <div className="info-row-login-info">
+              <span className="label red">Last Login Date & Time:</span>
+              <span className="value grey">25-Jul-2025 [12:17 PM IST]</span>
+            </div>
+          </div>
+
+          <h1 className="website-title-text">SAARTHI</h1>
         </div>
 
         {/* ✅ Alert Bar */}

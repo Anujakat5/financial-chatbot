@@ -552,3 +552,73 @@ body.sidebar-open {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
+
+
+.website-header {
+  background-color: #fdfdfd;
+  border-bottom: 1px solid #eee;
+}
+
+.user-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.92rem;
+}
+
+.info-row-name {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.info-row-id {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.info-row-login-info {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+
+.label {
+  font-weight: 600;
+}
+
+.value {
+  font-weight: 500;
+}
+
+.black {
+  color: #000;
+}
+
+.red {
+  color: #d32f2f;
+}
+
+.grey {
+  color: #444;
+}
+
+.website-title-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1B3C53;
+  margin: 0;
+}
+
+.info-row-name,
+.info-row-id,
+.info-row-login-info {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; /* optional: tighten text spacing */
+}
