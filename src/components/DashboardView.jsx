@@ -10,6 +10,7 @@ import AlertBar from './AlertBar';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
 import Navbar from './Navbar';
+import FloatingChat from './FloatingChat';
 
 function DashboardView() {
   const [activeTab, setActiveTab] = useState('home');
@@ -142,6 +143,7 @@ function DashboardView() {
         {/* Main Content Area */}
         <main className="main-area-bg flex-grow-1 p-4">
           {renderContent()}
+          <FloatingChat/>
         </main>
 
         {/* Footer */}

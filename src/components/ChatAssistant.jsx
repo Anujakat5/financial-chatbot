@@ -19,7 +19,7 @@ const ChatAssistant = () => {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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", // Replace with your API key
+          "Authorization": "Bearer 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", // Replace with your API key
           "Content-Type": "application/json",
           "HTTP-Referer": window.location.origin,
         },
