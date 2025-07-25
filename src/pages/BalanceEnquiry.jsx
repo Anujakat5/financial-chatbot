@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/logo.png";
 import axios from "axios";
 
 
@@ -68,7 +67,7 @@ const BalanceEnquiry = ({ goBack }) => {
         }}
       >
         <img
-          src="/logo.png"
+          src="src/assets/logo.png"
           alt="App Logo"
           style={{ width: "90px", marginBottom: "20px" }}
         />

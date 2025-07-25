@@ -82,7 +82,7 @@ const LeftSidebar = ({ onSidebarClick, activeSidebar, isOpen, sinNumber }) => {
     <div className={`left-sidebar ${isOpen ? 'open' : ''}`}>
       <div className="left-sidebar-inner p-3 shadow">
         <div className="sidebar-logo-container mb-4" style={{ textAlign: "center" }}>
-          <img src="/logo.png" alt="Logo" style={{ height: "90px", width: "auto" }} />
+          <img src="src/assets/logo.png" alt="Logo" style={{ height: "90px", width: "auto" }} />
         </div>
         <h6>Welcome {userName}!</h6>
         <ul className="list-unstyled mt-3">
